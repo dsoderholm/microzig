@@ -95,7 +95,17 @@ pub const stm32f429zit6u = Chip{
 };
 
 pub const nrf52832 = Chip{
-    .name = "nRF52832",
+    .name = "nRF52840",
+    .path = root_path ++ "chips/nrf52/nrf52.zig",
+    .cpu = cpus.cortex_m4,
+    .memory_regions = &.{
+        MemoryRegion{ .offset = 0x00000000, .length = 0x80000, .kind = .flash },
+        MemoryRegion{ .offset = 0x20000000, .length = 0x10000, .kind = .ram },
+    },
+};
+
+pub const nrf52840 = Chip{
+    .name = "nRF52840",
     .path = root_path ++ "chips/nrf52/nrf52.zig",
     .cpu = cpus.cortex_m4,
     .memory_regions = &.{
